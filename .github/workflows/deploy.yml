@@ -27,9 +27,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create Pages project if needed
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 35fae887cc4db5aef040a2e9cab81c04
+          command: pages project create cloud-generator --production-branch=main
+        continue-on-error: true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 35fae887cc4db5aef040a2e9cab81c04
-          command: pages deploy dist --project-name=cloud-generator
+          command: pages deploy dist --project-name=cloud-generator --commit-dirty=true
