@@ -30,3 +30,9 @@ npm run build
 - Vite
 - Tailwind CSS
 - Lucide React (icons)
+
+## Deployment
+
+Live at: https://tools.joadn.com/cloud-generator/
+
+Automatically deployed to Cloudflare Pages on push to `main` via GitHub Actions.
