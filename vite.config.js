@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/cloud-generator/',
   build: {
-    outDir: 'dist/cloud-generator'
+    outDir: 'dist'
   }
 })
